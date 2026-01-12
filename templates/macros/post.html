@@ -19,6 +19,7 @@
     <{{ heading }} class="post-title">
         <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
     </{{ heading }}>
+    {%- if not page.extra.hide_post_meta %}
     <ul class="post-meta hidden">
         {% if page.draft -%}
         <li class="draft-label">DRAFT</li>
@@ -46,6 +47,7 @@
         {%- set word_count = [page.word_count ~ " word", page.word_count | pluralize] | join %}
         <li title="{{ word_count }}"><time datetime="PT{{ page.reading_time }}M">{{ reading_time }}</time> read</li>
     </ul>
+    {%- endif %}
 
     {%- if page.taxonomies %}
     <div class="post-tags">
